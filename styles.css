@@ -1,0 +1,153 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Centered Logo Above Carousel */
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #33ff33;
+  box-shadow: 0 0 15px #33ff33, 0 0 30px #00ffff;
+}
+
+
+/* 3D Carousel */
+.carousel {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  margin-bottom: 30px;
+}
+
+.carousel__images {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: rotate 30s infinite linear;
+}
+
+.carousel__images img {
+  position: absolute;
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.5s, opacity 0.5s;
+  border: 3px solid rgb(85, 200, 94);
+  box-shadow:
+    0 0 20px rgba(27, 219, 69, 0.8),
+    0 0 40px rgba(255, 255, 0, 0.6),
+    0 0 60px rgba(25, 221, 58, 0.4);
+  transform: scale(1);
+}
+
+.carousel__images img:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 30px rgb(209, 209, 197),
+    0 0 50px rgba(199, 199, 188, 0.9),
+    0 0 70px rgba(130, 241, 169, 0.8);
+}
+
+/* Image placement in 3D */
+.carousel__images img:nth-child(1) {
+  transform: rotateY(0deg) translateZ(300px);
+}
+.carousel__images img:nth-child(2) {
+  transform: rotateY(60deg) translateZ(300px);
+}
+.carousel__images img:nth-child(3) {
+  transform: rotateY(120deg) translateZ(300px);
+}
+.carousel__images img:nth-child(4) {
+  transform: rotateY(180deg) translateZ(300px);
+}
+.carousel__images img:nth-child(5) {
+  transform: rotateY(240deg) translateZ(300px);
+}
+.carousel__images img:nth-child(6) {
+  transform: rotateY(300deg) translateZ(300px);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Birthday Text Styling */
+#name {
+  text-align: center;
+  color: #ff0000;
+  font-weight: bold;
+  text-shadow:
+    0 0 5px #ff0000,
+    0 0 10px #ff9900,
+    0 0 15px #ffff00,
+    0 0 20px #33ff33,
+    0 0 25px #00ffff,
+    0 0 30px #3399ff,
+    0 0 35px #cc00ff;
+  animation: glowText 2s ease-in-out infinite alternate;
+}
+
+#name h1 {
+  font-size: 2rem;
+}
+#name h2 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+#name h3 {
+  font-size: 1rem;
+  margin-top: 5px;
+  color: #00ffcc;
+}
+
+@keyframes glowText {
+  from {
+    text-shadow:
+      0 0 5px #ff0000,
+      0 0 10px #ff9900,
+      0 0 15px #ffff00;
+  }
+  to {
+    text-shadow:
+      0 0 10px #33ff33,
+      0 0 20px #00ffff,
+      0 0 30px #3399ff;
+  }
+}
